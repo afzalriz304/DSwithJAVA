@@ -1,4 +1,4 @@
-package TopicWise.SliddingWindow;
+package TopicWise.SliddingWindow.FixedSize;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package TopicWise.SliddingWindow;
+package TopicWise.SliddingWindow.FixedSize;
 
 public class MaximumSubArraySizeK {
     public static void main(String[] args) {
