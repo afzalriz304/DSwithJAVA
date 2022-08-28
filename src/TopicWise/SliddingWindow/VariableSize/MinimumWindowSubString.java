@@ -1,15 +1,17 @@
 package TopicWise.SliddingWindow.VariableSize;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MinimumWindowSubString {
     public static void main(String[] args) {
         System.out.println(minWindow("ADOBECODEBANC","ABC"));
         System.out.println(minWindow("BDAB","AB"));
+
     }
 
     private static String minWindow(String s, String t) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        Collections.sort(arr);
         if(s.isEmpty() || s.length()<t.length()){
             return "";
         }
@@ -19,6 +21,16 @@ public class MinimumWindowSubString {
         char[] child = t.toCharArray();
         int count =0;
         Map<Character,Integer> map = new HashMap();
+
+        Map<Integer,Integer> map1 = new HashMap();
+        int[][] result = new int[map.size()][2];
+        int index =0;
+        for(Map.Entry e:map1.entrySet()){
+            result[index][0] = (Integer) e.getKey();
+            result[index][1] = (Integer) e.getValue();
+            index++;
+        }
+
         for(Character i:child){
             map.put(i,map.getOrDefault(i,0)+1);
         }
