@@ -1,4 +1,4 @@
-package TopicWise.SliddingWindow.FixedSize;
+package TopicWise.SliddingWindow.FixedSize.String;
 
 import java.util.*;
 
@@ -8,8 +8,43 @@ public class CountAnagram {
         String sub = "abc";
 //        String str = "abab";
 //        String sub = "ab";
-        System.out.println(countAnagram(str, sub));
+        //System.out.println(countAnagram(str, sub));
         System.out.println(countAnagramOptimal(str, sub));
+        System.out.println(countAnagramUsingArray(str, sub));
+    }
+
+    private static List<Integer> countAnagramUsingArray(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if (s.isEmpty() || p.isEmpty())
+            return result;
+        int i = 0;
+        int j = 0;
+        int k = p.length();
+        // count sub occurrences
+        int[] count = new int[26];
+        for (int q = 0; q < p.length(); q++) {
+            count[p.charAt(q) - 'a']++;
+        }
+        while (j < s.length()) {
+            count[s.charAt(j) - 'a']--;
+            if (j - i + 1 >= k) {
+                if (isAnagram(count, p)) {
+                    result.add(i);
+                }
+                count[s.charAt(i) - 'a']++;
+                i++;
+            }
+            j++;
+        }
+        return result;
+    }
+
+    private static boolean isAnagram(int[] count, String sub) {
+        for (int i = 0; i < sub.length(); i++) {
+            if (count[sub.charAt(i) - 'a'] != 0)
+                return false;
+        }
+        return true;
     }
 
     private static List<Integer> countAnagramOptimal(String s, String p) {
@@ -54,7 +89,6 @@ public class CountAnagram {
         return true;
     }
 
-
     private static List<Integer> countAnagram(String str, String sub) {
         List<Integer> list = new ArrayList<>();
         if (sub.isBlank() || sub.isEmpty())
@@ -83,4 +117,6 @@ public class CountAnagram {
         }
         return list;
     }
+
+
 }
