@@ -10,20 +10,20 @@ public class ValidParenthesis {
         System.out.println(isValid(s1));
     }
 
-    private static boolean isValid(String str) {
+    private static boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < str.length(); i++) {
-            if (!stack.empty() && (str.charAt(i) == '}' || str.charAt(i) == ']' || str.charAt(i) == ')')) {
-                if (str.charAt(i) == ']' && !stack.peek().equals('['))
+        for (int i = 0; i < s.length(); i++) {
+            if (!stack.empty() && (s.charAt(i) == '}' || s.charAt(i) == ']' || s.charAt(i) == ')')) {
+                if (s.charAt(i) == ']' && !stack.peek().equals('['))
                     return false;
-                else if (str.charAt(i) == ')' && !stack.peek().equals('('))
+                else if (s.charAt(i) == ')' && !stack.peek().equals('('))
                     return false;
-                else if (str.charAt(i) == '}' && !stack.peek().equals('{'))
+                else if (s.charAt(i) == '}' && !stack.peek().equals('{'))
                     return false;
 
                 stack.pop();
             } else
-                stack.push(str.charAt(i));
+                stack.push(s.charAt(i));
 
         }
         return stack.empty();
