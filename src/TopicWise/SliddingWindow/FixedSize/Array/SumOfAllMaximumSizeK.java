@@ -5,14 +5,14 @@ import java.util.*;
 public class SumOfAllMaximumSizeK {
     public static void main(String[] args) {
         int[] nums = new int[]{1,3,-1,2,-3,3,6,7};
-        //System.out.println(sumOfAllMaxiumInArrayOfSizeK(nums,3));
-        Deque<Integer> deque = new ArrayDeque<>();
+        System.out.println(sumOfAllMaxiumInArrayOfSizeK(nums,3));
+        /*Deque<Integer> deque = new ArrayDeque<>();
         for(Integer i :nums){
             deque.offer(i);
         }
         for (Integer dq:deque){
             System.out.println(dq);
-        }
+        }*/
     }
 
     private static int sumOfAllMaxiumInArrayOfSizeK(int[] nums, int k) {

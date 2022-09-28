@@ -1,4 +1,4 @@
-package TopicWise.SliddingWindow.VariableSize.Array;
+package TopicWise.SliddingWindow.VariableSize.String;
 
 import java.util.HashMap;
 import java.util.Map;
