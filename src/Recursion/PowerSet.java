@@ -5,6 +5,8 @@ import java.util.*;
 public class PowerSet {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
+        List<List<Integer>> result = subset(nums,new ArrayList<>(),new ArrayList<>(),0);
+        System.out.println(Arrays.toString(result.toArray()));
         Set<Integer> subArray = new HashSet<>();
         List<Set> powerSet = new ArrayList<>();
         List<Set> subSet = findPowerSet(nums, 0, subArray, powerSet);
@@ -27,5 +29,20 @@ public class PowerSet {
 
         return powerSet;
     }
+
+    public static List<List<Integer>> subset(
+            int[] nums, List<List<Integer>> result, List<Integer> sub, int index) {
+        if (index == nums.length) {
+            result.add(new ArrayList(sub));
+            return result;
+        }
+        sub.add(nums[index]);
+        subset(nums, result, sub, index + 1);
+        sub.remove(Integer.valueOf(nums[index]));
+        subset(nums, result, sub, index + 1);
+
+        return result;
+    }
+
 
 }

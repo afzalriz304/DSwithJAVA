@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Sort01 {
 
     public static void main(String[] args) {
-        int[] result = sortZeroesAndOne(new int[]{1, 1, 1, 0, 0, 1, 0, 1});
+        int[] result = sortZeroesAndOne(new int[]{0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0});
         System.out.println(Arrays.toString(result));
     }
 
@@ -15,15 +15,13 @@ public class Sort01 {
         int j = 0;
         int temp;
         while (j < arr.length) {
-            if (arr[j] == 1) {
-                j++;
-            } else {
+            if (arr[j] == 0) {
                 temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
                 i++;
-                j++;
             }
+            j++;
         }
         return arr;
     }

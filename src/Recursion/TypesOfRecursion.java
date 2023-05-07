@@ -8,7 +8,8 @@ public class TypesOfRecursion {
     }
 
     /**
-     * Tail recursion
+     * Tail recursion -
+     * recursive function is the last part
      * @param num
      */
     public static void printViaTailRecursion(int num) {
@@ -21,6 +22,7 @@ public class TypesOfRecursion {
 
     /**
      * Head Recursion
+     * recursive function is before processing of the statements
      * @param num
      */
     public static void printViaHeadRecursion(int num) {
