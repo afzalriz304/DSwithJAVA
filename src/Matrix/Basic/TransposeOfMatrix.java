@@ -1,4 +1,4 @@
-package Matrix;
+package Matrix.Basic;
 
 import java.util.Arrays;
 
@@ -17,8 +17,6 @@ public class TransposeOfMatrix {
             return null;
 
         int[][] transpose = new int[matrix[0].length][matrix.length];
-        // first rotate the matrix anti-clockwise
-        int top, bottom, temp = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 transpose[j][i] = matrix[i][j];
